@@ -14,9 +14,23 @@ namespace csharp
             var items = new List<Item> {new Item {Name = "meat", SellIn = 10, Quality = 25}};
             var app = new GildedRose(items);
             app.UpdateQuality();
-            Assert.AreEqual(items[0].Name, "meat");
-            Assert.AreEqual(items[0].Quality, 24);
-            Assert.AreEqual(items[0].SellIn, 9);
+            Assert.AreEqual("meat", items[0].Name);
+            Assert.AreEqual(24, items[0].Quality);
+            Assert.AreEqual(9, items[0].SellIn);
+
+        }
+
+        [Test]
+        public void testRegularOldItem()
+        {
+            var items = new List<Item> { new Item { Name = "meat", SellIn = 1, Quality = 25 } };
+            var app = new GildedRose(items);
+            app.UpdateQuality();
+            app.UpdateQuality();
+            app.UpdateQuality();
+            Assert.AreEqual("meat", items[0].Name);
+            Assert.AreEqual(20, items[0].Quality);
+            Assert.AreEqual(-2, items[0].SellIn);
 
         }
 
