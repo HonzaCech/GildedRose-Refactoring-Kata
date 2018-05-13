@@ -16,6 +16,7 @@ namespace csharp
         {
             SellIn--;
             Quality = SellIn < 0 ? Quality - 2 : Quality - 1;
+            Quality = Math.Max(Quality, 0);
         }
     }
 }
