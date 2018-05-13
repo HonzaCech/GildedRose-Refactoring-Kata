@@ -34,6 +34,30 @@ namespace csharp
 
         }
 
+        [Test]
+        public void testNegativeQuality()
+        {
+            var items = new List<Item> { new Item { Name = "meat", SellIn = 1, Quality = 1 } };
+            var app = new GildedRose(items);
+            app.UpdateQuality();
+            app.UpdateQuality();
+            app.UpdateQuality();
+            Assert.AreEqual("meat", items[0].Name);
+            Assert.GreaterOrEqual(0, items[0].Quality);
+
+        }
+
+        [Test]
+        public void testAgedBrie()
+        {
+            var items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 1, Quality = 1 } };
+            var app = new GildedRose(items);
+            app.UpdateQuality();
+            app.UpdateQuality();
+            app.UpdateQuality();
+            Assert.AreEqual(4, items[0].Quality);
+        }
+
 
     }
 }
