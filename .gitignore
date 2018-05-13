@@ -2,3 +2,7 @@
 *.pyc
 /perl6/lib/.precomp
 /elixir/_build/
+/.vs/slnx.sqlite
+/.vs/ProjectSettings.json
+/.vs/GildedRose-Refactoring-Kata/v15/Browse.VC.db
+/.vs/GildedRose-Refactoring-Kata/v15/.suo
