@@ -75,13 +75,7 @@ namespace csharp
                             Items[i].Quality = Items[i].Quality - Items[i].Quality;
                         }
                     }
-                    else
-                    {
-                        if (Items[i].Quality < 50)
-                        {
-                            Items[i].Quality = Items[i].Quality + 1;
-                        }
-                    }
+
                 }
             }
         }
