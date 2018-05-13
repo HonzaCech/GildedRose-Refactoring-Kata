@@ -89,5 +89,14 @@ namespace csharp
             Assert.AreEqual(26, items[0].Quality);
         }
 
+        [Test]
+        public void testBackstagePassUnder10()
+        {
+            var items = new List<Item> { new Item { Name = "Backstage passes", SellIn = 8, Quality = 25 } };
+            var app = new GildedRose(items);
+            app.UpdateQuality();
+            Assert.AreEqual(27, items[0].Quality);
+        }
+
     }
 }
