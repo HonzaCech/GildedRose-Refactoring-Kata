@@ -11,7 +11,7 @@ namespace csharp
         [Test]
         public void testRegularItem()
         {
-            var items = new List<Item> {new Item {Name = "meat", SellIn = 10, Quality = 25}};
+            var items = new List<IItem> {new RegularItem("meat", 10,25)};
             var app = new GildedRose(items);
             app.UpdateQuality();
             Assert.AreEqual("meat", items[0].Name);
@@ -23,7 +23,7 @@ namespace csharp
         [Test]
         public void testRegularOldItem()
         {
-            var items = new List<Item> { new Item { Name = "meat", SellIn = 1, Quality = 25 } };
+            var items = new List<IItem> {new RegularItem("meat", 1, 25)};
             var app = new GildedRose(items);
             app.UpdateQuality();
             app.UpdateQuality();
@@ -37,7 +37,7 @@ namespace csharp
         [Test]
         public void testNegativeQuality()
         {
-            var items = new List<Item> { new Item { Name = "meat", SellIn = 1, Quality = 1 } };
+            var items = new List<IItem> { new RegularItem("meat", 1, 1) };
             var app = new GildedRose(items);
             app.UpdateQuality();
             app.UpdateQuality();
@@ -50,7 +50,7 @@ namespace csharp
         [Test]
         public void testAgedBrie()
         {
-            var items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 1, Quality = 1 } };
+            var items = new List<IItem> { new AgedBrie("Aged Brie", 1,1) };
             var app = new GildedRose(items);
             app.UpdateQuality();
             app.UpdateQuality();
@@ -61,7 +61,7 @@ namespace csharp
         [Test]
         public void testAgedBrieTooBigQuality()
         {
-            var items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 1, Quality = 49 } };
+            var items = new List<IItem> { new AgedBrie("Aged Brie", 1, 49) };
             var app = new GildedRose(items);
             app.UpdateQuality();
             app.UpdateQuality();
@@ -72,7 +72,7 @@ namespace csharp
         [Test]
         public void testSulfuras()
         {
-            var items = new List<Item> { new Item { Name = "Sulfuras", SellIn = 1, Quality = 80 } };
+            var items = new List<IItem> { new Sulfuras("Sulfuras", 1) };
             var app = new GildedRose(items);
             app.UpdateQuality();
             app.UpdateQuality();
@@ -83,7 +83,7 @@ namespace csharp
         [Test]
         public void testBackstagePass()
         {
-            var items = new List<Item> { new Item { Name = "Backstage passes", SellIn = 13, Quality = 25 } };
+            var items = new List<IItem> { new Backstage("Bacsktage pass", 13, 25)  };
             var app = new GildedRose(items);
             app.UpdateQuality();
             Assert.AreEqual(26, items[0].Quality);
@@ -92,7 +92,7 @@ namespace csharp
         [Test]
         public void testBackstagePassUnder10()
         {
-            var items = new List<Item> { new Item { Name = "Backstage passes", SellIn = 8, Quality = 25 } };
+            var items = new List<IItem> { new Backstage("Bacsktage pass", 8, 25) };
             var app = new GildedRose(items);
             app.UpdateQuality();
             Assert.AreEqual(27, items[0].Quality);
@@ -101,7 +101,7 @@ namespace csharp
         [Test]
         public void testBackstagePassUnder5()
         {
-            var items = new List<Item> { new Item { Name = "Backstage passes", SellIn = 4, Quality = 25 } };
+            var items = new List<IItem> { new Backstage("Bacsktage pass", 4, 25) };
             var app = new GildedRose(items);
             app.UpdateQuality();
             Assert.AreEqual(28, items[0].Quality);
@@ -110,7 +110,7 @@ namespace csharp
         [Test]
         public void testOldBackstage()
         {
-            var items = new List<Item> { new Item { Name = "Backstage passes", SellIn = 0, Quality = 25 } };
+            var items = new List<IItem> { new Backstage("Bacsktage pass", 0, 25) };
             var app = new GildedRose(items);
             app.UpdateQuality();
             Assert.AreEqual(0, items[0].Quality);
