@@ -30,7 +30,7 @@ namespace csharp
                     {
                         Items[i].Quality = Items[i].Quality + 1;
 
-                        if (!Items[i].Name.StartsWith("Backstage passes"))
+                        if (Items[i].Name.StartsWith("Backstage passes"))
                         {
                             if (Items[i].SellIn < 11)
                             {
