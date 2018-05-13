@@ -35,6 +35,19 @@ namespace csharp
         }
 
         [Test]
+        public void testRegularOldItemNonNegative()
+        {
+            var items = new List<IItem> { new RegularItem("meat", 1, 1) };
+            var app = new GildedRose(items);
+            app.UpdateQuality();
+            app.UpdateQuality();
+            app.UpdateQuality();
+            app.UpdateQuality();
+            app.UpdateQuality();
+            Assert.AreEqual(0, items[0].Quality);
+        }
+
+        [Test]
         public void testNegativeQuality()
         {
             var items = new List<IItem> { new RegularItem("meat", 1, 1) };
